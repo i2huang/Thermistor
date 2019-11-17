@@ -34,10 +34,10 @@ void loop() {
   rawADC = analogRead(A0);
   x = rawADC;
   // Convert ADC reading into mV
-  mV = x;			// Task 1: Convert x into mV
+  x = 5000 * x / 1024;
 
   // Calculate Rt
-  Rt = mV;			// Task 2: Convert mV into Thermistor resistance Rt
+  Rt = 42000.0 / (5000.0 / mV - 1.0);
 
   // Calculate Temp
   Temp = 1/3950.0 * log (Rt / 50000.0);
